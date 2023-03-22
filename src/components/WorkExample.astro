@@ -1,0 +1,46 @@
+---
+const { align = "left", title } = Astro.props;
+---
+
+<article class={align === "right" ? "reverse" : ""}>
+  {
+    Astro.slots.has("media") && (
+      <div class="media">
+        <slot name="media" />
+      </div>
+    )
+  }
+  <div class="content">
+    <h3 slot="title">{title}</h3>
+    <slot name="description" />
+  </div>
+</article>
+
+<style>
+  article {
+    align-items: center;
+    display: flex;
+    /* margin-block-start: 5rem; */
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .reverse > .media {
+    margin-left: 2rem;
+  }
+
+  article:not(.reverse) .media {
+    margin-right: 2rem;
+  }
+
+  .media {
+    max-width: 40%;
+  }
+
+  .content {
+    flex: 1;
+    max-width: var(--max-width);
+  }
+</style>

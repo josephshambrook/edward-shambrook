@@ -1,0 +1,91 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Quote from "../components/Quote.astro";
+import Stack from "../components/Stack.astro";
+import WorkExample from "../components/WorkExample.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<style>
+  .main-layout {
+    margin-block-start: 10vh;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="main-layout">
+    <Header />
+
+    <main>
+      <Stack>
+        <WorkExample title="Puzzles and Survival" align="right">
+          <img slot="media" src="puzzles-and-survival-01.jpeg" />
+          <p slot="description">
+            Puzzles and Survival is a popular mobile game that combines
+            puzzle-solving with the need to survive in a post-apocalyptic world.
+            As a writer for the game, I worked on a number of limited-time
+            events and a lot of the in-game dialogue.
+          </p>
+        </WorkExample>
+
+        <WorkExample title="Soul Land">
+          <img slot="media" src="soul-land-01.jpeg" />
+          <p slot="description">
+            Soul Land is a mobile RPG game that takes place in a world where
+            people can cultivate their souls to become stronger. As a writer for
+            the game, I was responsible for creating dialogue samples to immerse
+            players in the game's world and story.
+          </p>
+        </WorkExample>
+
+        <WorkExample title="MEM" align="right">
+          <img slot="media" src="mem-01.jpeg" />
+          <p slot="description">
+            Mem is a play that tells the story of Matthias Wolfenden, a
+            billionaire who isolates himself on a desert island, where he
+            explores his past and present while discovering his true self. For
+            full access, please message me at edwardshambrook@googlemail.com.
+          </p>
+        </WorkExample>
+
+        <WorkExample title="Design Island">
+          <img slot="media" src="design-island-01.jpeg" />
+          <p slot="description">
+            Design Island is a mobile game developed by Funplus, where players
+            build and decorate their own island. As a writer for the game, I was
+            primarily responsible for creating social media copy, developing
+            future plotlines, and writing for limited-time events.
+          </p>
+        </WorkExample>
+
+        <Quote>
+          <p>
+            A passionate and skilful proofreader and narrative designer,
+            [Edward] has proven himself to be one of the most talented and
+            innovative language specialists I have ever worked with. With his
+            knowledge of script writing and expertise in the English language,
+            Edward has helped us improve the English translations for mobile
+            game titles that we have been developing, publishing, or localising.
+            In particular, he has also written a series of stories based on true
+            historical events for the campaigns in a strategy game developed by
+            our company. He played a major role in our successful launch of
+            several mobile games. […] He has outstanding communication skills,
+            and an uncanny ability to make complex information easily understood
+            by general audiences.
+          </p>
+
+          <span slot="author">
+            Zheng Kai, <br />English Localization Team Manager for Overseas
+            Operations at 37GAMES
+          </span>
+        </Quote>
+      </Stack>
+    </main>
+    <Footer />
+  </body>
+</html>

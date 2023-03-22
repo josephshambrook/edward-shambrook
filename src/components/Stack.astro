@@ -1,0 +1,19 @@
+<div class="stack">
+  <slot />
+</div>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .stack > :global(*) {
+    margin-block: 0;
+  }
+
+  .stack > :global(*) + :global(*) {
+    margin-block-start: var(--space, 5rem);
+  }
+</style>
