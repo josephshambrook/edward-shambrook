@@ -22,8 +22,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <Header />
 
     <main>
-      <Stack>
-        <WorkExample title="Puzzles and Survival" align="right">
+      <Stack space={10}>
+        <WorkExample
+          title="Puzzles and Survival"
+          headingColor="teal"
+          alignImage="right"
+        >
           <img slot="media" src="puzzles-and-survival-01.jpeg" />
           <p slot="description">
             Puzzles and Survival is a popular mobile game that combines
@@ -33,27 +37,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           </p>
         </WorkExample>
 
-        <WorkExample title="Soul Land">
-          <img slot="media" src="soul-land-01.jpeg" />
+        <WorkExample title="Ant Legion" headingColor="yellow">
+          <img slot="media" src="ant-legion-01.jpeg" />
           <p slot="description">
-            Soul Land is a mobile RPG game that takes place in a world where
-            people can cultivate their souls to become stronger. As a writer for
-            the game, I was responsible for creating dialogue samples to immerse
-            players in the game's world and story.
+            Ant Legion is a mobile strategy game in which players build and
+            manage an ant colony. As a writer for Ant Legion, I helped to
+            develop the game's story, dialogue, characters, and world.
           </p>
         </WorkExample>
 
-        <WorkExample title="MEM" align="right">
+        <WorkExample title="Mem" alignImage="right" headingColor="orange">
           <img slot="media" src="mem-01.jpeg" />
           <p slot="description">
             Mem is a play that tells the story of Matthias Wolfenden, a
             billionaire who isolates himself on a desert island, where he
-            explores his past and present while discovering his true self. For
-            full access, please message me at edwardshambrook@googlemail.com.
+            explores his past and present while discovering his true self.
           </p>
         </WorkExample>
 
-        <WorkExample title="Design Island">
+        <WorkExample title="Design Island" headingColor="yellow">
           <img slot="media" src="design-island-01.jpeg" />
           <p slot="description">
             Design Island is a mobile game developed by Funplus, where players

@@ -1,8 +1,33 @@
 ---
-const { align = "left", title } = Astro.props;
+type Color =
+  | "navy"
+  | "blue"
+  | "aqua"
+  | "teal"
+  | "olive"
+  | "green"
+  | "lime"
+  | "yellow"
+  | "orange"
+  | "red:"
+  | "fuchsia"
+  | "purple"
+  | "maroon"
+  | "white"
+  | "silver"
+  | "gray"
+  | "black";
+
+type Props = {
+  alignImage?: "left" | "right";
+  headingColor: Color;
+  title: string;
+};
+
+const { alignImage = "left", headingColor, title } = Astro.props;
 ---
 
-<article class={align === "right" ? "reverse" : ""}>
+<article class={alignImage === "right" ? "reverse" : ""}>
   {
     Astro.slots.has("media") && (
       <div class="media">
@@ -11,7 +36,7 @@ const { align = "left", title } = Astro.props;
     )
   }
   <div class="content">
-    <h3 slot="title">{title}</h3>
+    <h3 slot="title" style={`--color: ${headingColor}`}>{title}</h3>
     <slot name="description" />
   </div>
 </article>
@@ -20,27 +45,46 @@ const { align = "left", title } = Astro.props;
   article {
     align-items: center;
     display: flex;
-    /* margin-block-start: 5rem; */
+    flex-direction: column;
+    padding-block: 2rem;
   }
 
-  .reverse {
-    flex-direction: row-reverse;
-  }
-
-  .reverse > .media {
-    margin-left: 2rem;
-  }
-
-  article:not(.reverse) .media {
-    margin-right: 2rem;
+  h3 {
+    background: linear-gradient(#eee, var(--color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .media {
-    max-width: 40%;
+    flex-basis: 40%;
+    line-height: 0;
+    margin-block-end: 2rem;
   }
 
   .content {
     flex: 1;
     max-width: var(--max-width);
+  }
+
+  @media (min-width: 600px) {
+    article {
+      flex-direction: row;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+    .media {
+      margin-block-end: 0;
+    }
+
+    .reverse > .media {
+      margin-inline-start: 2rem;
+    }
+
+    article:not(.reverse) .media {
+      margin-inline-end: 2rem;
+    }
   }
 </style>

@@ -1,4 +1,12 @@
-<div class="stack">
+---
+interface Props {
+  space?: number;
+}
+
+const { space } = Astro.props;
+---
+
+<div class="stack" style={space ? `--space: ${space}rem` : ""}>
   <slot />
 </div>
 
