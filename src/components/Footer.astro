@@ -11,15 +11,23 @@ const today = new Date();
 
 <style>
   footer {
-    background-color: var(--black);
-    color: var(--white);
+    /* intentionally inverted */
+    background-color: var(--silver);
+    /* color: var(--bkgd-color); */
     font-size: var(--font-size-small);
     margin-block-start: 2rem;
     padding: 25px;
     text-align: center;
   }
 
+  @media screen and (prefers-color-scheme: dark) {
+    footer {
+      background-color: var(--navy);
+      color: var(--text-color);
+    }
+  }
+
   a {
-    color: var(--aqua);
+    color: var(--link-color);
   }
 </style>

@@ -1,0 +1,118 @@
+---
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Stack from "../components/Stack.astro";
+import WorkExample from "../components/WorkExample.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<style>
+  .main-layout {
+    margin-block-start: 10vh;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="main-layout">
+    <Header />
+
+    <main>
+      <h2>Portfolio</h2>
+
+      <Stack space={10}>
+        <WorkExample
+          title="Puzzles and Survival"
+          headingColor="blue"
+          headingColorDark="teal"
+          alignImage="right"
+        >
+          <p slot="description">
+            Puzzles and Survival is a popular mobile game that combines
+            puzzle-solving with the need to survive in a post-apocalyptic world.
+            As a writer for the game, I worked on a number of limited-time
+            events and a lot of the in-game dialogue.
+          </p>
+
+          <div>
+            <img
+              src="puzzles-and-survival-01.jpeg"
+              alt="Promotional image for Puzzles and Survival game"
+            />
+            <div>
+              <YouTube id="Gf9wwron1UU" />
+            </div>
+          </div>
+        </WorkExample>
+
+        <WorkExample
+          title="Ant Legion"
+          headingColor="orange"
+          headingColorDark="yellow"
+        >
+          <div slot="media">
+            <img
+              src="ant-legion-01.jpeg"
+              alt="Promotional image for Ant Legion game"
+            />
+          </div>
+
+          <p slot="description">
+            Ant Legion is a mobile strategy game in which players build and
+            manage an ant colony. As a writer for Ant Legion, I helped to
+            develop the game's story, dialogue, characters, and world.
+          </p>
+        </WorkExample>
+
+        <WorkExample
+          title="Mem"
+          alignImage="right"
+          headingColor="maroon"
+          headingColorDark="orange"
+        >
+          <p slot="description">
+            Mem is a play that tells the story of Matthias Wolfenden, a
+            billionaire who isolates himself on a desert island, where he
+            explores his past and present while discovering his true self. For
+            full access, please message me at edwardshambrook@googlemail.com.
+          </p>
+          <div slot="media">
+            <img src="mem-01.jpeg" alt="Promotional image for the play Mem" />
+          </div>
+        </WorkExample>
+
+        <WorkExample
+          title="Design Island"
+          headingColor="red"
+          headingColorDark="yellow"
+        >
+          <p slot="description">
+            Design Island is a mobile game developed by Funplus, where players
+            build and decorate their own island. As a writer for the game, I was
+            primarily responsible for creating social media copy, developing
+            future plotlines, and writing for limited-time events.
+          </p>
+
+          <div slot="media">
+            <img
+              src="design-island-01.jpeg"
+              alt="Promotional image for Design Island game"
+            />
+          </div>
+        </WorkExample>
+      </Stack>
+    </main>
+    <Footer />
+  </body>
+
+  <script
+    is:inline
+    src="https://diamond-thirtytwo.edwardshambrook.com/script.js"
+    data-site="HFQLYEKG"
+    defer
+  ></script>
+</html>

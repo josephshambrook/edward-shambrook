@@ -1,0 +1,106 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Quote from "../components/Quote.astro";
+import Stack from "../components/Stack.astro";
+import WorkExample from "../components/WorkExample.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<style>
+  .main-layout {
+    margin-block-start: 10vh;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="main-layout">
+    <Header />
+
+    <main>
+      <div class="grid">
+        <img src="/edward-shambrook.jpeg" alt="Edward Shambrook" />
+        <Stack>
+          <p>
+            As a narrative designer and writer based in Edinburgh, I am
+            passionate about collaborating with teams to create high-quality
+            titles.
+          </p>
+
+          <p>
+            I’d like to think my experience as a narrative designer and
+            localiser at 37Games in Shanghai demonstrates this. Indeed, I am
+            very grateful to have been given the opportunity to localise,
+            develop, and market high-quality mobile titles. In doing so, I was
+            able to utilise tools such as Memsource, Grammarly, and Jasper to
+            deliver high-quality products while adhering to strict deadlines,
+            for which I equally made good use of the solid organisational skills
+            I earned while studying for a BA in Law and English Literature.
+          </p>
+
+          <p>
+            Prior to working at 37Games, I was also very fortunate to have been
+            given a chance to work as a short-term narrative designer and writer
+            at Puzala via FunPlus in Shanghai, where I was responsible for
+            writing engaging idle, NPC, and PC dialogue for a bestselling mobile
+            title. In much the same way as was the case at 37, this venture
+            enabled me to utilise my MA in Playwriting. Moreover, I gained a
+            working understanding of Unity, thus further enhancing my skill set
+            as a narrative designer.
+          </p>
+
+          <p>
+            Furthermore, I have built on my background as a teacher of English
+            as a second language while working as a narrative designer, namely
+            by making good use of my superb communication skills. Moreover, I
+            also credit my interest in current affairs, passion for learning
+            languages, and reputation as an avid reader and traveller for
+            informing my unique perspective, something I also accredit for my
+            success.
+          </p>
+
+          <p>
+            Going forward, I am always eager to hear from interesting and
+            creative people, so please don’t hesitate to contact me.
+          </p>
+        </Stack>
+      </div>
+    </main>
+  </body>
+  <Footer />
+</html>
+
+<script
+  is:inline
+  src="https://diamond-thirtytwo.edwardshambrook.com/script.js"
+  data-site="HFQLYEKG"
+  defer
+></script>
+
+<style>
+  img {
+    max-width: 200px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "img" ".";
+    gap: 1rem;
+  }
+
+  img {
+    grid-area: img;
+  }
+
+  @media (min-width: 600px) {
+    .grid {
+      grid-template-areas: ". img";
+      grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+    }
+  }
+</style>

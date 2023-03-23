@@ -1,4 +1,5 @@
 :root {
+  /* font sizes */
   --font-size-sm: clamp(16px, 0vw + 17px, 14px);
   --font-size-base: clamp(18px, 0vw + 18px, 19px);
   --font-size-md: clamp(20px, 1vw + 18px, 25px);
@@ -7,6 +8,10 @@
   --font-size-xxl: clamp(29px, 4vw + 15px, 60px);
   --font-size-xxxl: clamp(32px, 5vw + 11px, 80px);
 
+  /* sizing */
+  --max-width: 65ch;
+
+  /* colors */
   --navy: #001f3f;
   --blue: #0074d9;
   --aqua: #7fdbff;
@@ -25,12 +30,32 @@
   --gray: #aaaaaa;
   --black: #111111;
 
-  --max-width: 65ch;
+  /* theme */
+  --bkgd-color: var(--white);
+  --text-color: var(--black);
+  --heading-color: var(--black);
+  --primary-color: var(--blue);
+  --secondary-color: var(--olive);
+  --link-color: var(--primary-color);
+  --link-hover-color: var(--black);
+}
+
+/* dark mode colors */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bkgd-color: var(--black);
+    --text-color: var(--white);
+    --heading-color: var(--white);
+    --primary-color: var(--aqua);
+    --secondary-color: var(--green);
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--white);
+  }
 }
 
 body {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--bkgd-color);
+  color: var(--text-color);
   font-family: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
     "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
   font-size: var(--font-size-base);
@@ -57,7 +82,7 @@ body {
     gap: 5rem;
     grid-template-columns:
       [full-start] minmax(1em, 1fr)
-      [main-start] minmax(0, 56em) [main-end]
+      [main-start] minmax(0, 56rem) [main-end]
       minmax(1em, 1fr) [full-end];
   }
 }
@@ -82,11 +107,30 @@ h5,
 h6,
 strong,
 b {
-  color: var(--silver);
+  color: var(--heading-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "Raleway", sans-serif;
 }
 
 a {
-  color: var(--aqua);
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }
 
 nav a {

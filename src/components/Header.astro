@@ -6,14 +6,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 <header>
   <h1>{SITE_TITLE}</h1>
   <h2>{SITE_DESCRIPTION}</h2>
-
-  <p>
-    Having worked as a narrative designer and writer with two years of
-    experience in the gaming industry, I have worked on a variety of titles
-    spanning a wide array of genres. Going forward, I would love to utilize my
-    passion for AI development to create narrative-driven experiences.
-  </p>
   <nav>
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/portfolio">Portfolio</HeaderLink>
+    <HeaderLink href="/about">About</HeaderLink>
     <HeaderLink
       href="https://www.linkedin.com/in/edwardshambrook"
       target="_blank"
@@ -23,9 +19,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </nav>
 </header>
 <style>
-  header {
-    margin: 0em 0 2em;
-  }
   h2 {
     margin: 0.5em 0;
   }

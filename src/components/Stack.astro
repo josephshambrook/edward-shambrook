@@ -1,12 +1,17 @@
 ---
 interface Props {
   space?: number;
+  addToFirst?: boolean;
+  class?: string;
 }
 
-const { space } = Astro.props;
+const { space, addToFirst = false, ...props } = Astro.props;
 ---
 
-<div class="stack" style={space ? `--space: ${space}rem` : ""}>
+<div
+  class={`stack ${addToFirst ? "first" : ""} ${props.class ? props.class : ""}`}
+  style={space ? `--space: ${space}rem` : ""}
+>
   <slot />
 </div>
 
@@ -19,6 +24,10 @@ const { space } = Astro.props;
 
   .stack > :global(*) {
     margin-block: 0;
+  }
+
+  .stack.first > :global(*) {
+    margin-block-start: var(--space, 5rem);
   }
 
   .stack > :global(*) + :global(*) {

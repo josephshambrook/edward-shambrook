@@ -9,7 +9,7 @@ type Color =
   | "lime"
   | "yellow"
   | "orange"
-  | "red:"
+  | "red"
   | "fuchsia"
   | "purple"
   | "maroon"
@@ -21,13 +21,28 @@ type Color =
 type Props = {
   alignImage?: "left" | "right";
   headingColor: Color;
+  headingColorDark?: Color;
   title: string;
 };
 
-const { alignImage = "left", headingColor, title } = Astro.props;
+const {
+  alignImage = "left",
+  headingColor,
+  headingColorDark,
+  title,
+} = Astro.props;
 ---
 
 <article class={alignImage === "right" ? "reverse" : ""}>
+  <div class="content">
+    <h3
+      slot="title"
+      style={`--color: ${headingColor}; --color-dark: ${headingColorDark}`}
+    >
+      {title}
+    </h3>
+  </div>
+
   {
     Astro.slots.has("media") && (
       <div class="media">
@@ -35,56 +50,52 @@ const { alignImage = "left", headingColor, title } = Astro.props;
       </div>
     )
   }
-  <div class="content">
-    <h3 slot="title" style={`--color: ${headingColor}`}>{title}</h3>
-    <slot name="description" />
+  <div class="media">
+    <slot />
   </div>
+  <slot name="description" />
 </article>
 
 <style>
   article {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding-block: 2rem;
+    /* align-items: center; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* padding-block: 2rem; */
   }
 
   h3 {
-    background: linear-gradient(#eee, var(--color));
+    background: linear-gradient(var(--text-color), var(--color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .media {
-    flex-basis: 40%;
-    line-height: 0;
-    margin-block-end: 2rem;
+  @media screen and (prefers-color-scheme: dark) {
+    h3 {
+      background: linear-gradient(var(--text-color), var(--color-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   .content {
-    flex: 1;
+    flex: 1 0 100%;
     max-width: var(--max-width);
   }
 
-  @media (min-width: 600px) {
-    article {
-      flex-direction: row;
+  @media screen and (min-width: 550px) {
+    :global(.media > *) {
+      /* display: flex;
+      flex-wrap: wrap; */
+      /* gap: 1rem; */
+      /* flex: 0 1 auto; */
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
-    .reverse {
-      flex-direction: row-reverse;
-    }
-
-    .media {
-      margin-block-end: 0;
-    }
-
-    .reverse > .media {
-      margin-inline-start: 2rem;
-    }
-
-    article:not(.reverse) .media {
-      margin-inline-end: 2rem;
+    :global(.media > * > *) {
+      /* flex: 1 1 auto; */
     }
   }
 </style>
